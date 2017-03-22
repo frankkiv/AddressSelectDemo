@@ -1,11 +1,11 @@
 ## 地址選單 DEMO
 
 #### QUICK START
-```xml
+```bash
 $ git clone https://github.com/frankkiv/AddressSelectDemo.git
 $ cd AddressSelectDemo
 /AddressSelectDemo $ npm install
-/AddressSelectDemo node app.js #server will be host on 127.0.0.1:3000
+/AddressSelectDemo $ node app.js   # Server will be host on 127.0.0.1:3000
 ```
 <br>
 

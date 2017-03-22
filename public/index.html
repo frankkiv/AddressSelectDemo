@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/jquery/jquery.mobile-1.4.5.min.css"/>
+<script src="/jquery/jquery.min.js"></script>
+<script src="/jquery/jquery.mobile-1.4.5.min.js"></script>
+<script src="parsing.js"></script>
+
+<div class="ui-field-contain">
+  <legend>地址輸入:</legend>
+  <fieldset data-role="controlgroup" data-type="horizontal">
+    <select name="select-city" id="select-city" onChange="onSelectCity(this)">
+      <option value="" disabled selected style="display:none;">選擇城市</option>
+    </select>
+    <select name="select-area" id="select-area" onchange="onSelectArea(this)">
+      <option value="" disabled selected style="display:none;">選擇地區</option>
+    </select>
+  </fieldset>
+  <input id="textAddr"></input>
+  
+  <div data-role="main" class="ui-content">
+    <button class="ui-btn" onclick="addrSubmit();">我是按鈕</button>
+  </div>
+<div id="textOutput"></div>

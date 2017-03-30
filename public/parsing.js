@@ -1,6 +1,6 @@
 var jsonObject;
-var cityIndex;
-var areaIndex;
+var cityIndex = null;
+var areaIndex = null;
 var addrText;
 //init parsing Joson Object file
 $.getJSON("AllData.json", function(data){
@@ -33,6 +33,7 @@ function onSelectArea(data) {
 }
 
 function updatAreaOptions(data){
+    this.areaIndex = null
     $("#select-area").empty();
     $('#select-area').append(
         $("<option></option>")
@@ -41,6 +42,7 @@ function updatAreaOptions(data){
         .attr("style", 'display:none;')
         .text("選擇區域")
     );
+    $('#select-area').selectmenu('refresh', true);
     $.each(this.jsonObject[data].AreaList, function (key, value) {
         $('#select-area').append(
             $("<option></option>")
@@ -51,9 +53,13 @@ function updatAreaOptions(data){
 }
 
 function addrSubmit(){
-    this.addrText = $('#textAddr').val();
-    let tmpstring = this.jsonObject[this.cityIndex].CityName+""+this.jsonObject[this.cityIndex].AreaList[this.areaIndex].AreaName+""+this.addrText
-    $('#textOutput').append(
-        $("<h2></h2>").text(tmpstring)
-    );
+    if(this.cityIndex == null || this.areaIndex == null){
+        alert("選單不得為空");
+    }else{
+        this.addrText = $('#textAddr').val();
+        let tmpstring = this.jsonObject[this.cityIndex].CityName+""+this.jsonObject[this.cityIndex].AreaList[this.areaIndex].AreaName+""+this.addrText
+        $('#textOutput').append(
+            $("<h2></h2>").text(tmpstring)
+        );
+    }
 }
